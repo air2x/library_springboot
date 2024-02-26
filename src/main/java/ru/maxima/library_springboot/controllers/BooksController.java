@@ -30,7 +30,7 @@ public class BooksController {
         return "view-with-all-books";
     }
 
-    @PatchMapping("/{id}/assign")
+    @PostMapping("/{id}/assign")
     public String assignABook(@PathVariable("id") int id,
                               @ModelAttribute("person") Person person) {
         booksService.assignABook(id, person);
@@ -45,7 +45,7 @@ public class BooksController {
         return "view-with-book-by-id";
     }
 
-    @PatchMapping("/{id}/freeTheBook")
+    @PostMapping("/{id}/freeTheBook")
     public String freeTheBook(@PathVariable("id") int id) {
         booksService.freeTheBook(id);
         return "redirect:/books";
@@ -73,7 +73,7 @@ public class BooksController {
         return "view-to-edit-book";
     }
 
-    @PatchMapping("/{id}")
+    @PostMapping("/{id}")
     public String updateBook(@ModelAttribute("book") @Valid Book book,
                              BindingResult bindingResult,
                              @PathVariable("id") int id) {

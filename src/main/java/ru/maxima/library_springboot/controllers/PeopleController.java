@@ -57,7 +57,7 @@ public class PeopleController {
         return "view-to-edit-person";
     }
 
-    @PatchMapping("/{id}")
+    @PostMapping("/{id}")
     public String updatePerson(@ModelAttribute("person") @Valid Person person,
                                BindingResult bindingResult,
                                @PathVariable("id") int id) {

@@ -15,7 +15,7 @@
 <a th:text="${book.getYearOfWritingBook()}">Value</a>
 <br/>
 <br/>
-<form style="color: green" th:if="${book.getOwner()==null}" th:method="PATCH"
+<form style="color: green" th:if="${book.getOwner()==null}" th:method="POST"
       th:action="@{/books/{id}/assign(id=${book.getId()})}">
     <div style="color: green" th:if="${book.getOwner()==null}">
         <div> Книга свободна</div>
@@ -27,7 +27,7 @@
         </select>
     </div>
 </form>
-<form th:if="${book.getOwner()!=null}" th:method="PATCH" th:action="@{/books/{id}/freeTheBook(id=${book.getId()})}">
+<form th:if="${book.getOwner()!=null}" th:method="POST" th:action="@{/books/{id}/freeTheBook(id=${book.getId()})}">
     <div th:if="${book.getOwner().getId()!=0}">
         <div>Книга занята, находится у:</div>
         <a th:text="${book.getOwner().getFullName()}"></a>
