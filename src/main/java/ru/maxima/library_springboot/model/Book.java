@@ -8,30 +8,30 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "Book")
+@Table(name = "book")
 public class Book {
     @Id
-    @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "name_of_book")
     @NotEmpty(message = "Назавние не должно быть пустым")
     @Getter
     @Setter
+    @Column(name = "name_of_book")
     private String nameOfBook;
 
-    @Column(name = "author_of_book")
     @NotEmpty(message = "Автор не должен быть пустым")
     @Getter
     @Setter
+    @Column(name = "author_of_book")
     private String authorOfBook;
 
-    @Column(name = "year_of_writing_book")
     @Getter
     @Setter
+    @Column(name = "year_of_writing_book")
     private int yearOfWritingBook;
 
     @ManyToOne

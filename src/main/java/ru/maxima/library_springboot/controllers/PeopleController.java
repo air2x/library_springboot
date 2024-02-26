@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.maxima.library_springboot.model.Person;
+import ru.maxima.library_springboot.services.BooksService;
 import ru.maxima.library_springboot.services.PeopleService;
 
 @Controller
@@ -14,10 +15,12 @@ import ru.maxima.library_springboot.services.PeopleService;
 public class PeopleController {
 
     private final PeopleService peopleService;
+    private final BooksService booksService;
 
     @Autowired
-    public PeopleController(PeopleService peopleService) {
+    public PeopleController(PeopleService peopleService, BooksService booksService) {
         this.peopleService = peopleService;
+        this.booksService = booksService;
     }
 
     @GetMapping
